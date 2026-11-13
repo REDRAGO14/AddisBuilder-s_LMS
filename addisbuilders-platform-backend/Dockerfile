@@ -10,8 +10,8 @@ COPY pom.xml .
 # Copy source code
 COPY src src
 
-# Package the application (skip tests for faster deployment)
-RUN ./mvnw clean package -DskipTests
+# Grant execute permission to the Maven wrapper script and package
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
 # Stage 2: Run the application
 FROM eclipse-temurin:25-jdk-alpine
