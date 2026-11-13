@@ -1,5 +1,5 @@
-# Stage 1: Build the application using Maven
-FROM eclipse-temurin:21-jdk-alpine AS build
+# Stage 1: Build the application using Maven (Java 25)
+FROM eclipse-temurin:25-jdk-alpine AS build
 WORKDIR /app
 
 # Copy Maven wrapper and build files
@@ -10,10 +10,10 @@ COPY pom.xml .
 # Copy source code
 COPY src src
 
-# Grant execute permission to the Maven wrapper script and package
+# Grant execute permission and build
 RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
-# Stage 2: Run the application
+# Stage 2: Run the application (Java 25)
 FROM eclipse-temurin:25-jdk-alpine
 VOLUME /tmp
 COPY --from=build /app/target/*.jar app.jar
