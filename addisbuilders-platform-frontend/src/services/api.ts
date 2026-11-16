@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const rawUrl = (import.meta.env.VITE_API_URL || 'http://localhost:8080/api').trim();
+const rawUrl = (import.meta.env.API_URL || 'http://localhost:8080/api').trim();
 export const API_ORIGIN = rawUrl.replace(/\/+$/, '').replace(/\/api$/i, '');
 export const API_BASE_URL = `${API_ORIGIN}/api`;
 export const USE_MOCK =
