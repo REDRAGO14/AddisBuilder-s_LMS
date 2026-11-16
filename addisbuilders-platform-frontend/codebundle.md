@@ -4,7 +4,7 @@ Root: c:\Users\HP\Desktop\AddisBuilders
 Files: 128
 
 ## How to apply changes
-- Return changes as **unified diffs** per file whenever possible.
+- Return changes as **unified diffs** per file whenever possible. 
 - Files are delimited with `<!-- FILE: ... -->` markers.
 
 ## Project tree
