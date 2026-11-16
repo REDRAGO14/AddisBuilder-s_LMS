@@ -21,7 +21,10 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         List<String> origins = Arrays.stream(allowedOrigins.split(","))
                 .map(String::trim).filter(origin -> !origin.isEmpty()).distinct().toList();
-        configuration.setAllowedOrigins(origins);
+        // Vercel preview deployments get a unique hostname for each deployment.
+        // Spring's origin patterns support both exact origins and patterns such as
+        // https://*.vercel.app while still allowing credentialed requests.
+        configuration.setAllowedOriginPatterns(origins);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

@@ -2,7 +2,7 @@ import { UserRole } from '../types';
 
 export const APP_NAME = "AddisBuilder's";
 export const APP_TAGLINE = 'University Learning & Internship Platform';
-export const DEFAULT_API_BASE_URL = 'http://localhost:8080/api';
+export const DEFAULT_API_BASE_URL = 'https://addisbuilder-s-lms-1.onrender.com/api';
 
 export const USER_ROLES: Record<UserRole, { label: string; badgeColor: string; defaultPath: string }> = {
   LEARNER: {
